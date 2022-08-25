@@ -40,3 +40,11 @@ npm run build
 npm run serve
 
 ```
+
+## Serve api / host
+
+```
+
+npm run db:serve
+
+```
