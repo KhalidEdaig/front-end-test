@@ -13,7 +13,7 @@
 
 ```
 git clone git@github.com:KhalidEdaig/front-end-test.git
-cd front-end test
+cd front-end-test
 npm install
 ```
 
