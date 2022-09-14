@@ -1,8 +1,8 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
-import useDebouncedRef from '../composables/useDebouncedRef'
-import Details from './Details.vue'
+import useDebouncedRef from '@/composables/useDebouncedRef'
+import Details from '@/components/Details.vue'
 
 let searchQuery = useDebouncedRef('', 500)
 const detailsBien = ref({})

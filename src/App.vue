@@ -1,8 +1,7 @@
 <script setup>
-import GithubSVG from '@/assets/github.svg'
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-
+import TheFooter from './components/TheFooter.vue'
 const store = useStore()
 const user = ''
 const stack = computed(() => {
@@ -11,17 +10,8 @@ const stack = computed(() => {
 </script>
 
 <template>
-    <nav class="relative flex items-center justify-center capitalize text-lg pt-24">
-        <router-link class="inline pr-5" to="/" active-class="active">Home</router-link>
-        <router-link class="inline pr-5" to="/about" active-class="active">About</router-link>
-        <router-link class="inline" to="/search" active-class="active">Search Biens</router-link>
-    </nav>
     <router-view class="p-24"></router-view>
-    <footer>
-        <p class="text-gray-400 text-xs text-center">
-            <a class="flex items-center justify-center text-base font-medium text-black" target="_blank" href="https://github.com/KhalidEdaig"><GithubSVG class="w-5 mr-1" />KhalidEdaig</a>
-        </p>
-    </footer>
+    <the-footer></the-footer>
 </template>
 
 <style lang="scss">
