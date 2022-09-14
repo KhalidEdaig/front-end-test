@@ -1,9 +1,10 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
+import useDebouncedRef from '../composables/useDebouncedRef'
 import Details from './Details.vue'
 
-let searchQuery = ref('')
+let searchQuery = useDebouncedRef('', 500)
 const detailsBien = ref({})
 
 onMounted(() => {
@@ -13,11 +14,14 @@ onMounted(() => {
 const store = useStore()
 const biens = computed(() => store.state.biens.biens)
 
-const searchedBiens = computed(() => {
-    return biens.value.filter((bien) => {
-        return bien.address_line1.toLowerCase().indexOf(searchQuery.value.toLowerCase()) != -1
-    })
+const searchedBiens = computed({
+    get() {
+        return biens.value.filter((bien) => {
+            return bien.address_line1.toLowerCase().indexOf(searchQuery.value.toLowerCase()) != -1
+        })
+    },
 })
+
 watch(searchQuery, (newQuery) => {
     detailsBien.value = {}
 })
