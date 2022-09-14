@@ -18,6 +18,9 @@ const searchedBiens = computed(() => {
         return bien.address_line1.toLowerCase().indexOf(searchQuery.value.toLowerCase()) != -1
     })
 })
+watch(searchQuery, (newQuery) => {
+    detailsBien.value = {}
+})
 </script>
 
 <template>
